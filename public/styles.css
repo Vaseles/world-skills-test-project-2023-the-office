@@ -208,6 +208,7 @@ input:focus {
     background-repeat: no-repeat;
     background-size: contain;
     animation: show-right .6s linear;
+    position: relative;
 }
 
 /* left panel */
@@ -379,4 +380,7 @@ input:focus {
     background-color: rgb(254,254,254,.1);
     border-radius: 10px;
     font-size: 12px;
+}
+.person {
+    
 }

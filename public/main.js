@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const userId = document.getElementById('userId').value
+    const page__right = document.querySelector('.page__right')
 
     /*  Profile */
     const profile = document.querySelector('.page__left__info')
@@ -10,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`/api/users/${userId}`)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
-
                 profile.innerHTML = `
                     <img src="/avatars/${data.ava}" alt="">
                     <div class="">
@@ -21,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 `
                 chat_name.innerHTML = data.place.name
                 placeId = data.place.id
+
             })
             .catch(err => console.error(err));
     }
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fetch(`/api/places`)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 page__left__rooms.innerHTML = ''
 
                 data.forEach(place => {
@@ -52,8 +52,10 @@ document.addEventListener('DOMContentLoaded', () => {
                             div.innerHTML += `
                                 <h4>${user.name}</h4>
                             `
+                            RenderPeoplePlace(user)
                         })
                     }
+                    
 
                     page__left__rooms.appendChild(div)
                 });
@@ -66,11 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const chat__message__field = document.querySelector('.chat__message__field')
 
     const getAllMessages = () => {
-        console.log(placeId)
+        // console.log(placeId)
         fetch(`/api/messages/${placeId}`)
             .then(response => response.json())
             .then(data => {
-               console.log(data)
+            //    console.log(data)
                messages.innerHTML = ''
 
                data.forEach(message => {
@@ -104,14 +106,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     getPlacesData()
 
-    const page__right = document.querySelector('.page__right')
-
     page__right.addEventListener('click', (e) => {
-        console.log(e)
+        console.log(e.layerX, e.layerY)
     })
 
-    const RenderPeoplePlace = () => {
+    function RenderPeoplePlace (user) {
         if (placeId == 1) {
+            // page__right.innerHTML += `<img src="/avatars/${user.ava}" class="person" id="${user.id}"> `
             
         }
     }
