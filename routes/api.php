@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\MessageController;
+use App\Http\Controllers\PlaceController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +20,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/users/{id}', [UserController::class, 'user']);
+Route::put('/users/{id}/update-ava', [UserController::class, 'updateAvatar']);
+Route::put('/users/{id}/update-place', [UserController::class, 'updatePlace']);
+
+Route::get('/places', [PlaceController::class, 'all_places']);
+
+Route::get('/messages/{place_id}', [MessageController::class, 'all_messages']);
+Route::post('/messages/{place_id}', [MessageController::class, 'create_message']);

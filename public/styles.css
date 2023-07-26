@@ -1,0 +1,382 @@
+/* base reset */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    outline: none;
+    background-color: transparent;
+    border: none;
+}
+body {
+    background-color: rgb(38, 26, 38);
+    color: gainsboro;
+    font-size: 18px;
+    font-family: monospace;
+    overflow-x: hidden;
+}
+/* links */
+a {
+    color: gainsboro;
+    transition: all .3s linear;
+}
+a:hover {
+    color: violet;
+    border-bottom: 2px solid violet;
+}
+/* buttons */
+.btn {
+    background-color: violet;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 20px;
+    transition: all .3s linear;
+    color: white;
+    cursor: pointer;
+}   
+.btn:hover {
+    background-color: white;
+    color: black;
+    box-shadow:  0 0 10px 10px rgba(238, 130, 238, 0.5);
+}
+
+/* scroll and selection */
+::selection {
+    background-color: violet;
+    color: white;
+}
+::-webkit-scrollbar {
+    background-color: rgb(254,254,254,.05);
+    width: 6px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: violet;
+    border-radius: 10px;
+}
+
+/* login */
+.pre__login__form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    width: 100vw;
+
+    animation: show .6s linear;
+}
+.pre__login__form form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    background-color: rgb(254,254,254,.05);
+    border-radius: 10px;
+    box-shadow: 10px 10px 0px 10px violet, -6px -6px 0px 10px white;
+
+    max-width: 600px;
+    width: 100%;
+    padding: 20px;
+    margin-top: 5vh;
+    gap: 10px;
+    
+}
+.pre__login__form form h2 {
+    color: white;
+    font-size: 32px;
+}
+.pre__login__form form input {
+
+}
+.avatars {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 10px;
+    row-gap: 10px;
+    margin: 10px 0;
+}
+/* avatar */
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    width: 70px;
+    height: 70px;
+    position: relative;
+    border-radius: 1000px;
+    cursor: pointer;
+    animation: show .6s linear;
+}
+.avatar img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 1000px;
+}
+.avatar input {
+    z-index: 1;
+    width: 70px;
+    position: absolute;
+    height: 70px;
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 1000px;
+}
+.avatar input:hover {
+    box-shadow: 2px 2px 0px 4px rgba(238, 130, 238, 0.5), -1px -1px 0px 6px rgba(255, 255, 255, 0.5);
+}
+.avatar input:focus {
+    box-shadow: 4px 4px 0px 10px white, -2px -2px 0px 10px violet;
+}
+.message {
+    width: 100%;
+    background-color: violet;
+    color: white;
+    padding: 10px 6px;
+    margin: 4px 0;
+    border-radius: 10px;
+}
+input {
+    padding:  10px;
+    font-size: 18px;
+    width: 100%;
+    font-family: monospace;
+    border-radius: 10px;
+    color: gainsboro;
+    border-bottom: 2px solid gainsboro;
+    transition: all .3s linear;
+}
+input:hover {
+    border-color: rgba(238, 130, 238, 0.5);
+}
+input:focus {
+    border-color: violet;
+}
+@keyframes show {
+    0% {
+        opacity: 0;
+        margin-top: -10px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+
+/* page */
+.page {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+    animation: show .6s linear;
+} 
+
+.page__left {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(254,254, 254,.05);
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    max-width: 260px;
+
+    animation: show-left .6s linear;
+}
+.page__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 1000px;
+    height: 600px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    animation: show-right .6s linear;
+}
+
+/* left panel */
+.page__left__profile {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    height: 20vh;
+}
+/* profile info styles */
+.page__left__info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 14px;
+    padding:  10px;
+}
+.page__left__info img {
+    width: 60px;
+    height: 60px;
+    border-radius: 1000px;
+    box-shadow: 4px 4px 0px 2px white, -2px -2px 0px 2px violet;
+}
+.page__left__info h3 {
+    font-size: 20px;
+}
+.page__left__info span {
+    font-size: 12px;
+}
+.page__left__rooms {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    height: 50vh;
+    overflow-y: auto;
+}
+.page__left__chat {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    height: 30vh;
+}
+/* logout */
+.logout {
+    width: 100%;
+    background-color: violet;
+    color: white;
+    padding: 6px 10px;
+    text-align: center;
+
+    transition: all .3s linear;
+    border-bottom: none;
+    font-size: 16px;
+}
+.logout:hover {
+    background-color: white;
+    color: #000;
+    border-bottom: none;
+}
+/* animations */
+@keyframes show-right {
+    0% {
+        opacity: 0;
+        margin-right: -100px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0;
+    }
+}
+@keyframes show-left {
+    0% {
+        opacity: 0;
+        margin-left: -100px;
+    }
+    100% {
+        opacity: 1;
+        margin-left: 0;
+    }
+}
+
+/* places */
+.place {
+      width: 100%;
+      padding: 10px;
+}
+.place__title {
+    width: 100%;
+    border-bottom: 1px solid rgb(254,254,254,.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.place__title h3 {
+    font-size: 18px;
+}
+.place__title span {
+    font-size: 16px;
+}
+.place h4 {
+    font-size: 14px ;
+    padding: 4px ;
+    margin-left: 10%;
+}
+
+/*  chat */
+.page__left__chat  {
+    margin-top: 8px;
+    width: 100%;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    flex-direction: column;
+}
+.page__left__chat h4 {
+    font-size: 16px;
+    border-bottom: 1px solid rgb(254,254, 254,.1);
+    width: 100%;
+    padding: 4px ;
+
+}
+.messages {
+    height: 20vh;
+    overflow-y: scroll;
+    width: 100%;
+    padding: 4px 0;
+}
+.create__message {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+}
+.create__message input {
+    max-width: 90%;
+    font-size: 18px;
+}
+.create__message button {
+    background-color: violet;
+    color: white;
+    width: 100%;
+    max-width: 10%;
+    height: 100%;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 24px;
+    transition: all .3s linear;
+    cursor: pointer;
+}
+.create__message button:hover {
+    background-color: white;
+    color: black;
+}
+
+/* message */
+.messages {
+    padding: 4px;
+}
+.message {
+    display: flex;
+    justify-content:start;
+    align-items: center;
+    width: 100%;
+    background-color: rgb(254,254,254,.1);
+    border-radius: 10px;
+    font-size: 12px;
+}
